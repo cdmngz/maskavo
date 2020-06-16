@@ -2,7 +2,7 @@
 <div class="mx-auto">
   <v-navigation-drawer class="red lighten-5" app permanent fixed expand-on-hover>
     <v-toolbar flat v-for="(item, name, index) in maskavo" :key="index" :class="item.color">
-      <v-list-item class="px-0" @click="$vuetify.goTo('#'+name, {offset: 55})">
+      <v-list-item class="px-0" @click="$vuetify.goTo('#'+name, {offset: -7})">
         <v-list-item-icon>
           <v-img height="25" width="25" :src="item.icon" alt="https://www.flaticon.com/authors/good-ware"></v-img>
         </v-list-item-icon>
@@ -28,24 +28,21 @@
         
       >
         <v-row>
-          <v-col cols="5">
-            <v-img :src="require(`../assets/${item.img}`)"></v-img>
+          <v-col cols="6" class="pr-0">
+            <v-img class="ml-3 mr-0 pr-0" :src="require(`../assets/${item.img}`)"></v-img>
           </v-col>
-          <v-col>
+          <v-col class="pl-0">
             <v-card-title>{{item.title}}</v-card-title>
             <v-card-subtitle>{{item.subtitle}}</v-card-subtitle>
-            <v-card-text class="d-flex align-center py-0">Piel mixta<v-rating :value="5" color="blue" readonly size="12" full-icon="mdi-circle"></v-rating></v-card-text>
-            <v-card-text class="d-flex align-center py-0">Piel grasa<v-rating :value="5" color="blue" readonly size="12" full-icon="mdi-circle"></v-rating></v-card-text>
+            <v-card-text class="d-flex align-center py-0">Piel mixta<v-rating :value="5" color="pink lighten-1" readonly size="12" full-icon="mdi-circle"></v-rating></v-card-text>
+            <v-card-text class="d-flex align-center py-0">Piel grasa<v-rating :value="5" color="pink lighten-1" readonly size="12" full-icon="mdi-circle"></v-rating></v-card-text>
             <v-card-text>{{item.descsubtitle}}</v-card-text>
+            <v-card-text class="pt-1"><b>Cantidad: </b>{{item.cantidad}}gr</v-card-text>
+            <v-card-text class="py-1"><b>Precio: </b>$ {{item.precio}}</v-card-text>
           </v-col>
         </v-row>
-            <v-divider class="mx-4"></v-divider>
-        <v-row cols="12">
-          <v-card-text>{{item.cantidad}}gr</v-card-text>
-          <v-card-text>$ {{item.precio}}</v-card-text>
-            <v-chip-group>
-              <v-chip color="pink lighten-1" dark v-for="ing in item.composicion" :key="ing">{{ing}}</v-chip>
-            </v-chip-group>
+        <v-row class="px-4 py-2">
+          <v-chip color="pink lighten-1" class="ma-2" dark v-for="ing in item.composicion" :key="ing">{{ing}}</v-chip>
         </v-row>
       </v-card>        
     </v-row>
@@ -72,7 +69,7 @@ export default {
             desctitle: 'Para piel mixta y grasa:',
             descsubtitle: 'Propiedades bactericidas y antisépticas, reduce la grasa. Es refrescante y efectivo en el tratamiento para la piel.',
             cantidad: 20,
-            composicion: ['azucar', 'flores', 'muchosColores', 'cuatro'],
+            composicion: ['Aceite esencial de menta', 'Eucalipto', 'Hojas de Menta'],
             precio: 200,
           },
           {
@@ -108,7 +105,7 @@ export default {
             desctitle: 'Para piel mixta y grasa:',
             descsubtitle: 'Propiedades bactericidas y antisépticas, reduce la grasa. Es refrescante y efectivo en el tratamiento para la piel.',
             cantidad: 20,
-            composicion: ['azucar', 'flores', 'muchosColores'],
+            composicion: ['Mantecas', 'Aceites', 'Arcilla de Caolín rojo','Carbón Vegetal activado', 'vitameina E sin aroma'],
             precio: 200,
           },
         ]

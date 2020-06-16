@@ -26,7 +26,34 @@
     <v-content>
       <router-view></router-view>
     </v-content>
+    <v-footer dark padless>
+    <v-card
+      width="100%"
+      flat
+      tile
+    >
+      <v-card-title class="teal d-flex justify-center">
+        <strong class="subheading">Si quieres saber lo nuevo:</strong>
+      </v-card-title>
 
+
+      <v-card-title class="teal d-flex justify-center">
+        <v-btn
+          v-for="icon in icons"
+          :key="icon"
+          class="mx-4"
+          dark
+          icon
+        >
+          <v-icon size="24px">{{ icon }}</v-icon>
+        </v-btn>
+      </v-card-title>
+
+      <v-card-text class="py-2 white--text text-center">
+        {{ new Date().getFullYear() }} — <strong>Maskavo</strong>
+      </v-card-text>
+    </v-card>
+  </v-footer>
   </v-app>
 </template>
 
@@ -34,5 +61,13 @@
 
 export default {
   name: 'App',
+  data: () => ({
+    icons: [
+      'mdi-facebook',
+      'mdi-twitter',
+      'mdi-linkedin',
+      'mdi-instagram',
+    ],
+  })
 };
 </script>
